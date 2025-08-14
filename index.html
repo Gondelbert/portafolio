@@ -1,171 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dominique Gondelbert - Portafolio</title>
-    
-    <!-- Fuente de Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(90deg, #005C97, #363795);
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        header h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #222;
-            padding: 15px;
-        }
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #00c3ff;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: auto;
-            background: white;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            animation: fadeUp 1s ease-in-out;
-        }
-        h2 {
-            color: #005C97;
-            border-bottom: 3px solid #ccc;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-        }
-        .proyecto {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .proyecto:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .proyecto h3 {
-            color: #363795;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #222;
-            color: white;
-            margin-top: 20px;
-        }
-        footer p {
-            font-size: 0.9em;
-        }
-        a {
-            color: #005C97;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        /* Animaciones */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        /* Responsivo */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            nav {
-                flex-direction: column;
-            }
-            nav a {
-                margin: 10px 0;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dominique Gondelbert – Portafolio</title>
+  <meta name="description" content="Portafolio de Dominique Gondelbert: Ingeniero Telemático especializado en IA conversacional, Rasa y modelos generativos." />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --card: #12131a;
+      --muted: #aab1c0;
+      --text: #e7ebf3;
+      --accent: #8ab4ff;
+      --accent-2: #9b8cff;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f7fb; --card: #ffffff; --text: #0f172a; --muted: #556079; --accent: #315efb; --accent-2: #6b4eff;
+      }
+    }
+    * { box-sizing: border-box }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: radial-gradient(1000px 600px at 10% -10%, rgba(138,180,255,.1), transparent), var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none }
+    a:hover { text-decoration: underline }
+    .wrap { max-width: 1024px; margin: 40px auto; padding: 0 20px }
+    header { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; background: linear-gradient(145deg, rgba(155,140,255,.18), rgba(138,180,255,.12)); border: 1px solid rgba(138,180,255,.25); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .avatar { width: 96px; height: 96px; border-radius: 50%; background: var(--card); border: 2px solid rgba(138,180,255,.45); display: grid; place-items: center; overflow: hidden }
+    .avatar img { width: 100%; height: 100%; object-fit: cover }
+    .title { margin: 0 }
+    .subtitle { margin: 4px 0 0; color: var(--muted) }
+
+    .grid { display: grid; gap: 18px; grid-template-columns: 1fr; margin-top: 22px }
+    @media (min-width: 860px) { .grid { grid-template-columns: 1.2fr .8fr } }
+
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px }
+    .card h2 { margin-top: 0; letter-spacing: .2px }
+    .muted { color: var(--muted) }
+    ul.clean { list-style: none; padding-left: 0; margin: 0 }
+    ul.clean li { margin: 8px 0 }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px }
+    .chip { padding: 6px 10px; border-radius: 999px; background: rgba(138,180,255,.12); border: 1px solid rgba(138,180,255,.35); }
+
+    .projects { display: grid; gap: 14px }
+    .project { padding: 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.06); background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); }
+    .project h3 { margin: 0 0 6px 0 }
+    .badge { display: inline-block; font-size: 12px; padding: 3px 8px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; margin-left: 8px; color: var(--muted) }
+
+    footer { margin: 28px 0 60px; color: var(--muted); text-align: center }
+    .comment { opacity: .7; font-style: italic }
+    code { background: rgba(255,255,255,.08); padding: .1em .35em; border-radius: 6px; }
+  </style>
 </head>
 <body>
-
+  <div class="wrap">
     <header>
-        <h1>Dominique Gondelbert</h1>
-        <p>Especialista en Inteligencia Artificial, Redes y Desarrollo de Sistemas</p>
+      <div class="avatar" aria-label="Espacio reservado para avatar">
+        <!-- Reemplaza la imagen cuando la tengas -->
+        <!-- <img src="URL_DE_TU_AVATAR" alt="Avatar de Dominique Gondelbert" /> -->
+        <span class="comment">Avatar</span>
+      </div>
+      <div>
+        <h1 class="title">Dominique Gondelbert</h1>
+        <p class="subtitle">Diseñador Junior en entornos Rasa · Ingeniero en desarrollo e investigación de Inteligencia Artificial Generativa</p>
+      </div>
     </header>
 
-    <nav>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+    <section class="grid" aria-label="Presentación y habilidades">
+      <article class="card">
+        <h2>Presentación</h2>
+        <p>Soy <strong>Ingeniero Telemático</strong> especializado en el <strong>desarrollo e investigación de inteligencia artificial conversacional</strong> y en la <strong>creación de chatbots inteligentes basados en Rasa</strong>.</p>
+        <blockquote class="muted">“Aunque desconozca un tema al inicio, lo estudio y lo domino a medida que avanzo en su desarrollo.”</blockquote>
+      </article>
 
-    <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p>
-            Soy un profesional apasionado por la tecnología, con experiencia en inteligencia artificial, redes y desarrollo de software.
-            He presentado proyectos de innovación tecnológica en Medellín y México, buscando siempre llevar la tecnología a un nuevo nivel.
-        </p>
+      <aside class="card">
+        <h2>Competencias técnicas</h2>
+        <ul class="clean">
+          <li><strong>Lenguajes de programación:</strong> Python</li>
+          <li><strong>Frameworks y librerías:</strong> Rasa, PyTorch</li>
+          <li><strong>Infraestructura y datos:</strong> Administración de servidores, gestión y preparación de datasets</li>
+          <li><strong>Otras competencias:</strong> Liderazgo, trabajo en equipo, disciplina y gestión de proyectos</li>
+        </ul>
+      </aside>
     </section>
 
-    <section id="proyectos">
-        <h2>Proyectos</h2>
+    <section class="card" aria-label="Proyectos">
+      <h2>Proyectos destacados</h2>
+      <div class="projects">
+        <article class="project">
+          <h3>Sora <span class="badge">Fase prototipo</span></h3>
+          <p>Modelo de <strong>inteligencia artificial generativa</strong> diseñado para la <strong>automatización y administración de procesos</strong> en entornos de alta carga laboral o tareas repetitivas. El desarrollo se realiza de forma individual, asegurando un enfoque meticuloso y adaptable.</p>
+          <p><strong>Tecnologías:</strong> PyTorch en entorno Python; uso de arquitecturas/formatos GPT de libre acceso.</p>
+        </article>
 
-        <div class="proyecto">
-            <h3>FaceLog - Asistencia con Reconocimiento Facial</h3>
-            <p>Sistema para automatizar la asistencia en instituciones educativas utilizando IA y visión por computadora.</p>
-        </div>
-
-        <div class="proyecto">
-            <h3>MAID - Innovación Tecnológica</h3>
-            <p>Plataforma para renovar y potenciar tecnologías, con enfoque en IA generativa y mecánica cuántica computacional.</p>
-        </div>
+        <article class="project">
+          <h3>Rm_Sora <span class="badge">Basado en Rasa</span></h3>
+          <p>Versión optimizada y compacta del modelo principal <strong>Sora</strong>, orientada a la <strong>gestión de procesos académicos y administrativos</strong> en instituciones de educación superior.</p>
+          <p><strong>Tecnologías:</strong> Rasa, Python.</p>
+        </article>
+      </div>
     </section>
 
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>📧 Email: <a href="mailto:tuemail@gmail.com">tuemail@gmail.com</a></p>
-        <p>💼 LinkedIn: <a href="https://linkedin.com/in/tuusuario" target="_blank">linkedin.com/in/tuusuario</a></p>
-        <p>🐙 GitHub: <a href="https://github.com/tuusuario" target="_blank">github.com/tuusuario</a></p>
+    <section class="grid" aria-label="Experiencia y lenguajes">
+      <article class="card">
+        <h2>Experiencia y reconocimientos</h2>
+        <ul>
+          <li><strong>Prácticas profesionales:</strong> 6 meses en áreas de sistemas, redes e IA.</li>
+          <li><strong>Presentaciones de proyectos:</strong>
+            <ul>
+              <li>Medellín, Colombia — <em>24 al 26 de octubre de 2024</em> · Certificado de asistencia como expositor.</li>
+              <li>México — <em>25 de octubre de 2025</em> · Presentación programada.</li>
+            </ul>
+          </li>
+          <li><strong>Distinciones:</strong> 2 diplomas por presentaciones destacadas y 1 medalla de honor por innovación en proyectos de IA.</li>
+        </ul>
+      </article>
+
+      <aside class="card">
+        <h2>Idiomas</h2>
+        <div class="chips">
+          <span class="chip" title="Nativo">Francés · Nativo</span>
+          <span class="chip" title="Nativo">Español · Nativo</span>
+          <span class="chip" title="Intermedio">Inglés · Intermedio</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card" aria-label="Contacto">
+      <h2>Contacto</h2>
+      <p class="muted">(Sección temporalmente deshabilitada)</p>
+      <pre class="comment"><code><!--
+Email: TU_EMAIL
+LinkedIn: TU_LINKEDIN
+--></code></pre>
     </section>
 
     <footer>
-        <p>© 2025 Dominique Gondelbert | Desarrollado con ❤️</p>
+      <small>© <span id="y"></span> Dominique Gondelbert · Portafolio</small>
     </footer>
+  </div>
 
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
