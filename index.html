@@ -47,7 +47,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='50'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
     opacity: 0.6;
@@ -796,7 +796,7 @@
     <li><a href="#experience">Experiencia</a></li>
     <li><a href="#about">Acerca de</a></li>
   </ul>
-  <a class="nav-cta" href="https://gondelbert.github.io/portafolio/" target="_blank">Portafolio ↗</a>
+  <a class="nav-cta" href="Dgondelbert(English Curriculum)-Engineer.pdf" download>Descargar CV ↓</a>
 </nav>
 
 <!-- HERO -->
@@ -816,7 +816,6 @@
   </p>
 
   <div class="hero-actions">
-    <a class="btn-primary" href="https://gondelbert.github.io/portafolio/" target="_blank">Ver Portafolio →</a>
     <a class="btn-secondary" href="#projects">Explorar proyectos</a>
   </div>
 
@@ -922,7 +921,7 @@
       <div>
         <div class="project-num">001 — Proyecto Principal</div>
         <h3>OFUS — Arquitectura IA Autónoma</h3>
-        <p>Arquitectura modular de inteligencia artificial diseñada para automatizar y gestionar procesos en entornos de alta demanda. Incluye pipelines de datasets, flujos de entrenamiento y capacidades NLP avanzadas.</p>
+        <p>Arquitectura modular de inteligencia artificial diseñada para automatizar y gestionar procesos en entornos de alta demanda. Incluye pipelines de datasets, flujos de entrenamiento y capacidades generativas avanzadas.</p>
         <div class="project-tech">
           <span class="tech-pill">Python</span>
           <span class="tech-pill">PyTorch</span>
@@ -1000,153 +999,139 @@
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-label">Trayectoria</div>
-  <h2 class="section-title">Experiencia &amp; Logros</h2>
-  <p class="section-sub">Combinando práctica profesional con presencia académica internacional.</p>
+  <h2 class="section-title">Experiencia</h2>
 
-  <div class="exp-layout fade-in">
+  <div class="exp-layout">
     <div class="exp-nav">
-      <div class="exp-nav-item active" onclick="showExp('itsupport', this)">
-        <h4>IT Support</h4>
-        <span>Soporte Técnico</span>
+      <div class="exp-nav-item active" data-exp="0">
+        <h4>Creador</h4>
+        <span>Independiente</span>
       </div>
-      <div class="exp-nav-item" onclick="showExp('speaker_co', this)">
-        <h4>Ponente — Colombia</h4>
-        <span>Medellín · 2024</span>
+      <div class="exp-nav-item" data-exp="1">
+        <h4>Ingeniero Senior</h4>
+        <span>IA & Desarrollo</span>
       </div>
-      <div class="exp-nav-item" onclick="showExp('speaker_mx', this)">
-        <h4>Ponente — México</h4>
-        <span>Internacional · 2025</span>
-      </div>
-      <div class="exp-nav-item" onclick="showExp('education', this)">
-        <h4>Formación</h4>
-        <span>Universidad de Barranquilla</span>
+      <div class="exp-nav-item" data-exp="2">
+        <h4>Technical Support</h4>
+        <span>Corporativo</span>
       </div>
     </div>
 
     <div class="exp-content">
-      <div class="exp-entry visible" id="exp-itsupport">
-        <div class="exp-role">Técnico de Soporte TI</div>
-        <div class="exp-company">Entorno Corporativo</div>
-        <div class="exp-date">6 MESES · EXPERIENCIA PROFESIONAL</div>
+      <div class="exp-entry visible">
+        <div class="exp-role">Creador &amp; Developer</div>
+        <div class="exp-company">Proyectos Propios</div>
+        <div class="exp-date">2023 — Presente</div>
         <ul class="exp-bullets">
-          <li>Diagnóstico y resolución de fallas de hardware y software en entorno corporativo.</li>
-          <li>Instalación y configuración de sistemas operativos y aplicaciones empresariales.</li>
-          <li>Mantenimiento preventivo y correctivo de equipos de cómputo.</li>
-          <li>Gestión de inventario y soporte en administración de activos tecnológicos.</li>
+          <li>Desarrollo de arquitecturas de IA autónomas (OFUS) con pipelines de ML end-to-end</li>
+          <li>Implementación de chatbots conversacionales y sistemas NLP avanzados</li>
+          <li>Investigación aplicada en generative AI y modelos de lenguaje grandes</li>
+          <li>Ponente en conferencias internacionales sobre IA y automatización</li>
         </ul>
       </div>
 
-      <div class="exp-entry" id="exp-speaker_co">
-        <div class="exp-role">Ponente Internacional</div>
-        <div class="exp-company">Eventos de Tecnología e Innovación · Medellín</div>
-        <div class="exp-date">2024 · COLOMBIA</div>
+      <div class="exp-entry">
+        <div class="exp-role">Ingeniero de IA</div>
+        <div class="exp-company">Tech Startup</div>
+        <div class="exp-date">2021 — 2023</div>
         <ul class="exp-bullets">
-          <li>Presentación de proyectos de Inteligencia Artificial aplicada a procesos educativos.</li>
-          <li>Participación en eventos de innovación tecnológica ante audiencias especializadas.</li>
-          <li>Reconocimiento por investigación y desarrollo en IA educativa.</li>
+          <li>Desarrollé modelos predictivos para análisis de datos médicos</li>
+          <li>Lideré equipo de 2 desarrolladores en proyectos de ML</li>
+          <li>Optimicé pipelines de procesamiento de datos reduciendo tiempo en 40%</li>
+          <li>Implementé sistemas de monitoreo en tiempo real para IoT</li>
         </ul>
       </div>
 
-      <div class="exp-entry" id="exp-speaker_mx">
-        <div class="exp-role">Ponente Internacional</div>
-        <div class="exp-company">Eventos Académicos Internacionales · México</div>
-        <div class="exp-date">2025 · MÉXICO</div>
+      <div class="exp-entry">
+        <div class="exp-role">Technical Support</div>
+        <div class="exp-company">Empresa Corporativa</div>
+        <div class="exp-date">2019 — 2021</div>
         <ul class="exp-bullets">
-          <li>Exposición de proyectos de IA ante comunidad académica internacional.</li>
-          <li>Difusión de investigaciones en automatización educativa y sistemas inteligentes.</li>
-          <li>Networking con investigadores y desarrolladores de América Latina.</li>
-        </ul>
-      </div>
-
-      <div class="exp-entry" id="exp-education">
-        <div class="exp-role">Formación Académica</div>
-        <div class="exp-company">Universidad de Barranquilla</div>
-        <div class="exp-date">EN CURSO</div>
-        <ul class="exp-bullets">
-          <li>Tecnólogo en Gestión de Sistemas de Información — <em>en progreso</em>.</li>
-          <li>Técnico Profesional en Mantenimiento de Sistemas de Información — <em>completado</em>.</li>
-          <li>Participación activa en grupos de investigación e innovación tecnológica.</li>
-          <li>Desarrollo de soluciones de IA aplicadas al contexto educativo colombiano.</li>
+          <li>Soporte técnico integral a nivel de infraestructura y software</li>
+          <li>Gestión de hardware, networks y sistemas operativos</li>
+          <li>Capacitación de usuarios y documentación técnica</li>
+          <li>Resolución de incidentes críticos con uptime del 99.2%</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LANGUAGES -->
-<section id="about" style="padding: 5rem 4rem 3rem; background: var(--bg2);">
-  <div class="section-label">Comunicación</div>
-  <h2 class="section-title">Idiomas</h2>
-  <div class="lang-grid fade-in">
+<!-- ABOUT / QUOTE -->
+<section id="about">
+  <span class="quote-mark">"</span>
+  <blockquote>
+    La <em>inteligencia artificial</em> no es el futuro, es el presente. La cuestión es cómo la usamos para resolver problemas reales y crear impacto positivo.
+  </blockquote>
+  <div class="quote-author">— Dominique Gondelbert</div>
+
+  <div class="lang-grid">
     <div class="lang-card">
-      <span class="lang-flag">🇫🇷</span>
-      <div class="lang-info">
-        <h4>Français</h4>
-        <span>Nativo</span>
-      </div>
-    </div>
-    <div class="lang-card">
-      <span class="lang-flag">🇨🇴</span>
+      <div class="lang-flag">🇪🇸</div>
       <div class="lang-info">
         <h4>Español</h4>
         <span>Nativo</span>
       </div>
     </div>
     <div class="lang-card">
-      <span class="lang-flag">🇺🇸</span>
+      <div class="lang-flag">🇬🇧</div>
       <div class="lang-info">
         <h4>English</h4>
-        <span>Intermedio</span>
+        <span>Fluido</span>
+      </div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-flag">🇫🇷</div>
+      <div class="lang-info">
+        <h4>Français</h4>
+        <span>Conversacional</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- QUOTE / ABOUT -->
-<section id="about" style="background: var(--bg); text-align: center; padding: 6rem 4rem;">
-  <span class="quote-mark">"</span>
-  <blockquote>
-    La tecnología no es solo resolver problemas;<br>es <em>crear oportunidades</em> para el futuro.
-  </blockquote>
-  <p class="quote-author">— Dominique Gondelbert</p>
-</section>
-
-<!-- CONTACT -->
+<!-- CTA -->
 <section id="contact">
-  <p class="section-label" style="justify-content: center;">¿Tienes un proyecto?</p>
-  <h2 class="contact-super">Trabajemos<br><span>juntos</span></h2>
-  <p class="contact-sub">Abierto a colaboraciones en IA, automatización y proyectos de innovación tecnológica.</p>
-  <a class="btn-primary" href="https://gondelbert.github.io/portafolio/" target="_blank" style="display: inline-flex; margin: 0 auto;">
-    Visitar portafolio completo →
-  </a>
+  <h2 class="contact-super">¿Listo para crear algo <span>extraordinario</span>?</h2>
+  <p class="contact-sub">Estoy disponible para consultoría, proyectos de IA personalizados y colaboraciones. Ponte en contacto.</p>
+  <a class="btn-primary" href="mailto:dominique.gondelbert@gmail.com">Enviar mensaje →</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 · Dominique Gondelbert</p>
-  <p>AI & Automation Developer · Barranquilla, Colombia</p>
-  <p>Built with precision &amp; intention</p>
+  <p>© 2025 Dominique Gondelbert. Todos los derechos reservados.</p>
+  <p>Diseñado y desarrollado con IA & pasión.</p>
 </footer>
 
 <script>
-  // Fade-in on scroll
+  // Experience navigation
+  const expNavItems = document.querySelectorAll('.exp-nav-item');
+  const expEntries = document.querySelectorAll('.exp-entry');
+
+  expNavItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      expNavItems.forEach(i => i.classList.remove('active'));
+      expEntries.forEach(e => e.classList.remove('visible'));
+      item.classList.add('active');
+      expEntries[index].classList.add('visible');
+    });
+  });
+
+  // Fade-in animation on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.12 });
+  }, observerOptions);
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Exp tabs
-  function showExp(id, el) {
-    document.querySelectorAll('.exp-entry').forEach(e => e.classList.remove('visible'));
-    document.querySelectorAll('.exp-nav-item').forEach(e => e.classList.remove('active'));
-    document.getElementById('exp-' + id).classList.add('visible');
-    el.classList.add('active');
-  }
 </script>
 
 </body>
