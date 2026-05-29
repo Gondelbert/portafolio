@@ -1,134 +1,1153 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dominique Gondelbert – Portafolio</title>
-  <meta name="description" content="Dominique Gondelbert: Ingeniero Telemático especializado en IA conversacional, Rasa y modelos generativos. Proyectos, competencias y contacto profesional." />
-  <meta name="author" content="Dominique Gondelbert" />
-  <link rel="icon" href="avatar.jpg" />
-  <meta property="og:title" content="Dominique Gondelbert – Portafolio" />
-  <meta property="og:description" content="Portafolio de Dominique Gondelbert: proyectos en IA, chatbots y modelos generativos." />
-  <meta property="og:image" content="avatar.jpg" />
-  <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dominique Gondelbert — AI & Automation Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #16161f;
+    --surface: #1c1c28;
+    --surface2: #22222f;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --accent: #7c6fef;
+    --accent2: #a899f5;
+    --accent3: #c4baff;
+    --teal: #2de8c8;
+    --teal2: #1ab99f;
+    --text: #f0eeff;
+    --text2: #9f9bbf;
+    --text3: #625f7e;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+    --radius: 12px;
+    --radius2: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(10,10,15,0.7);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .nav-logo span { color: var(--accent2); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text2);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent3); }
+
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--teal);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--teal2);
+    padding: 0.45rem 1.1rem;
+    border-radius: 40px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--teal); color: var(--bg); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,111,239,0.12) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45,232,200,0.07) 0%, transparent 70%);
+    bottom: 50px;
+    left: 10%;
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--teal);
+    border: 1px solid rgba(45,232,200,0.25);
+    background: rgba(45,232,200,0.05);
+    padding: 0.35rem 0.9rem;
+    border-radius: 40px;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    width: fit-content;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .hero-name {
+    font-family: var(--display);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name .line2 {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.25);
+  }
+
+  .hero-name .accent-word { color: var(--accent2); }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: var(--text2);
+    max-width: 500px;
+    margin-bottom: 3rem;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid var(--border2);
+    color: var(--text2);
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--accent2); color: var(--accent3); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-num {
+    font-family: var(--display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-top: 0.3rem;
+  }
+
+  /* ─── SCROLL INDICATOR ─── */
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--text3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--text3), transparent);
+    animation: scrollDown 2s infinite;
+  }
+
+  @keyframes scrollDown {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 4rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--teal2);
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    color: var(--text2);
+    max-width: 500px;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+  }
+
+  /* ─── SKILLS GRID ─── */
+  #skills { background: var(--bg2); }
+
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius2);
+    overflow: hidden;
+  }
+
+  .skill-block {
+    background: var(--bg2);
+    padding: 2.5rem;
+    transition: background 0.2s;
+  }
+
+  .skill-block:hover { background: var(--surface); }
+
+  .skill-block.wide { grid-column: 1 / -1; }
+
+  .skill-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.3rem;
+  }
+
+  .icon-purple { background: rgba(124,111,239,0.12); color: var(--accent2); }
+  .icon-teal { background: rgba(45,232,200,0.1); color: var(--teal); }
+  .icon-pink { background: rgba(240,100,160,0.1); color: #f064a0; }
+  .icon-amber { background: rgba(240,180,60,0.1); color: #f0b43c; }
+
+  .skill-block h3 {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  .skill-block p {
+    color: var(--text2);
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text2);
+    border: 1px solid var(--border2);
+    background: var(--surface);
+    padding: 0.3rem 0.75rem;
+    border-radius: 40px;
+    letter-spacing: 0.03em;
+  }
+
+  .tag.accent { border-color: rgba(124,111,239,0.3); color: var(--accent3); background: rgba(124,111,239,0.07); }
+  .tag.teal { border-color: rgba(45,232,200,0.25); color: var(--teal); background: rgba(45,232,200,0.05); }
+
+  /* ─── PROJECTS ─── */
+  #projects { background: var(--bg); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius2);
+    overflow: hidden;
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.3s;
+  }
+
+  .project-card:hover { background: var(--bg3); }
+
+  .project-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .project-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-card h3 {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-card p {
+    color: var(--text2);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tech-pill {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text2);
+    letter-spacing: 0.04em;
+  }
+
+  .project-visual {
+    aspect-ratio: 4/3;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pv-ofus {
+    background: linear-gradient(135deg, rgba(124,111,239,0.15), rgba(45,232,200,0.08));
+    border: 1px solid rgba(124,111,239,0.15);
+  }
+
+  .pv-rasa {
+    background: linear-gradient(135deg, rgba(45,232,200,0.1), rgba(124,111,239,0.06));
+    border: 1px solid rgba(45,232,200,0.12);
+  }
+
+  .pv-health {
+    background: linear-gradient(135deg, rgba(240,100,160,0.1), rgba(240,180,60,0.07));
+    border: 1px solid rgba(240,100,160,0.12);
+  }
+
+  .pv-iot {
+    background: linear-gradient(135deg, rgba(240,180,60,0.1), rgba(45,232,200,0.06));
+    border: 1px solid rgba(240,180,60,0.12);
+  }
+
+  .pv-brain {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(124,111,239,0.4);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pv-brain::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(45,232,200,0.4);
+    position: absolute;
+  }
+
+  .pv-core {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent2), var(--teal));
+  }
+
+  /* grid dots decoration */
+  .project-visual svg {
+    position: absolute;
+    opacity: 0.15;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: var(--bg2); }
+
+  .exp-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+  }
+
+  .exp-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+  }
+
+  .exp-nav-item {
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .exp-nav-item.active {
+    background: var(--surface);
+    border-color: var(--border2);
+  }
+
+  .exp-nav-item h4 {
+    font-family: var(--display);
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .exp-nav-item span {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text3);
+    letter-spacing: 0.05em;
+  }
+
+  .exp-content { padding-top: 0.5rem; }
+
+  .exp-entry { display: none; }
+  .exp-entry.visible { display: block; }
+
+  .exp-role {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .exp-company {
+    color: var(--accent2);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .exp-date {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text3);
+    letter-spacing: 0.06em;
+    margin-bottom: 2rem;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .exp-bullets li {
+    display: flex;
+    gap: 1rem;
+    color: var(--text2);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .exp-bullets li::before {
+    content: '→';
+    color: var(--teal2);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+    font-family: var(--mono);
+  }
+
+  /* ─── ABOUT / QUOTE ─── */
+  #about {
+    background: var(--bg);
+    padding: 8rem 4rem;
+    text-align: center;
+  }
+
+  .quote-mark {
+    font-family: var(--display);
+    font-size: 6rem;
+    color: rgba(124,111,239,0.15);
+    line-height: 0.5;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  blockquote {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 600;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  blockquote em { color: var(--accent2); font-style: normal; }
+
+  .quote-author {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── LANGUAGES ─── */
+  .lang-grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+
+  .lang-card {
+    flex: 1;
+    min-width: 180px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .lang-flag {
+    font-size: 1.8rem;
+  }
+
+  .lang-info h4 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .lang-info span {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ─── CTA / FOOTER ─── */
+  #contact {
+    background: var(--bg2);
+    text-align: center;
+    padding: 8rem 4rem;
+  }
+
+  .contact-super {
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-super span { color: var(--accent2); }
+
+  .contact-sub {
+    color: var(--text2);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text3);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 3rem; }
+    .hero-name { font-size: clamp(2.8rem, 12vw, 5rem); }
+    .skills-layout, .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-template-columns: 1fr; }
+    .project-visual { display: none; }
+    .exp-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .exp-nav { position: static; flex-direction: row; flex-wrap: wrap; gap: 0.5rem; }
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+  }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header aria-label="Encabezado principal" class="fade-in">
-      <div class="avatar" aria-label="Avatar de Dominique Gondelbert">
-        <img src="avatar.jpg" alt="Foto de Dominique Gondelbert" />
-      </div>
-      <div>
-        <h1 class="title">Dominique Gondelbert</h1>
-        <p class="subtitle">Ingeniero Telemático · IA Conversacional y Modelos Generativos · Rasa · Proyectos de innovación</p>
-        <a href="A4 Curriculum GondelbertDominique.pdf" class="cv-btn" download>Descargar CV</a>
-      </div>
-    </header>
 
-    <section class="grid fade-in" aria-label="Presentación y habilidades">
-      <article class="card" role="region">
-        <h2>Presentación</h2>
-        <p>Apasionado por la <strong>inteligencia artificial</strong> y el desarrollo de <strong>chatbots</strong> en entornos de alta exigencia. Me especializo en crear soluciones innovadoras que optimizan procesos y mejoran la interacción humano-máquina. Mi enfoque es la investigación y la experimentación continua.</p>
-        <blockquote class="muted">“Si algo no lo sé, lo investigo y lo aprendo rápido.”</blockquote>
-      </article>
-      <aside class="card" role="region">
-        <h2>Competencias técnicas</h2>
-        <div class="skills">
-          <div class="skill">
-            <span class="skill-label">Python</span>
-            <div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div>
-          </div>
-          <div class="skill">
-            <span class="skill-label">Framework Rasa</span>
-            <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
-          </div>
-          <div class="skill">
-            <span class="skill-label">PyTorch / TensorFlow / huggingface / Transformers</span>
-            <div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div>
-          </div>
-          <div class="skill">
-            <span class="skill-label">Gestion de equipo</span>
-            <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
-          </div>
-          <div class="skill">
-            <span class="skill-label">Gestión de proyectos </span>
-            <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
-          </div>
-        </div>
-      </aside>
-    </section>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">D<span>.</span>Gondelbert</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Habilidades</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#experience">Experiencia</a></li>
+    <li><a href="#about">Acerca de</a></li>
+  </ul>
+  <a class="nav-cta" href="https://gondelbert.github.io/portafolio/" target="_blank">Portafolio ↗</a>
+</nav>
 
-    <section class="card fade-in" aria-label="Proyectos">
-      <h2>Proyectos destacados</h2>
-      <div class="projects">
-        <article class="project" role="article">
-          <h3> Ofus <span class="badge">Fase prototipo</span></h3>
-          <p>Modelo de <strong>inteligencia artificial</strong> la cual se centra en la automatización y administración de procesos en entornos de alta carga laboral.</p>
-          <p><strong>Tecnologías:</strong> PyTorch, Python, arquitecturas GPT2 open-source.</p>
-          <div class="project-links">
-            <a href="https://github.com/Gondelbert/Ofus" target="_blank">Repositorio</a>
-            <a href="#" target="_blank">Demo</a>
-          </div>
-        </article>
-        <article class="project" role="article">
-          <h3> R_Ofus <span class="badge">Funcional</span></h3>
-          <p>Versión optimizada y compacta del modelo principal, esta se desarrollo dentro del framework de rasa, orientada a la gestión de procesos académicos y administrativos.</p>
-          <p><strong>Tecnologías:</strong> Rasa, Python.</p>
-          <div class="project-links">
-            <a href="https://github.com/Gondelbert/R_Ofus" target="_blank">Repositorio</a>
-          </div>
-        </article>
-      </div>
-    </section>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
 
-    <section class="grid fade-in" aria-label="Experiencia y lenguajes">
-      <article class="card" role="region">
-        <h2>Experiencia y reconocimientos</h2>
-        <ul>
-          <li><strong>Prácticas profesionales:</strong> 6 meses en sistemas, redes e IA.</li>
-          <li><strong>Presentaciones:</strong>
-            <ul>
-              <li>Medellín, Colombia — <em>Oct 2024</em> · Certificado expositor.</li>
-            </ul>
-          </li>
-          <li><strong>Distinciones:</strong> 1 diploma por presentacione y 1 medalla por innovación en nuevas tecnologias.</li>
-        </ul>
-      </article>
-      <aside class="card" role="region">
-        <h2>Idiomas</h2>
-        <div class="chips">
-          <span class="chip" title="Nativo">🇫🇷 Francés · Nativo</span>
-          <span class="chip" title="Nativo">🇪🇸 Español · Nativo</span>
-          <span class="chip" title="Intermedio">🇬🇧 Inglés · Intermedio</span>
-        </div>
-      </aside>
-    </section>
+  <div class="hero-badge">Disponible para proyectos</div>
 
-    <section class="card fade-in" aria-label="Contacto y redes">
-      <h2>Contacto</h2>
-      <div class="contact">
-        <a href="mailto:gondelbertdominique@gmail.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2"/><path d="M4 4l8 8 8-8" stroke="currentColor" stroke-width="2"/></svg>
-          Email
-        </a>
-        <a href="https://www.linkedin.com/in/dominique-gondelbert-a73771314/" target="_blank" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="2"/><path d="M8 11v5" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="8" r="1.5" fill="currentColor"/><path d="M12 11v5m0-5a2 2 0 1 1 4 0v5" stroke="currentColor" stroke-width="2"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://github.com/Gondelbert" target="_blank" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.008c0 4.426 2.865 8.18 6.839 9.504.5.091.683-.217.683-.483 0-.238-.008-.868-.013-1.703-2.782.604-3.369-1.339-3.369-1.339-.454-1.155-1.11-1.463-1.11-1.463-.907-.62.069-.608.069-.608 1.003.07 1.531 1.031 1.531 1.031.892 1.526 2.341 1.086 2.91.831.091-.647.35-1.087.636-1.338-2.221-.253-4.555-1.112-4.555-4.945 0-1.091.39-1.984 1.029-2.683-.104-.254-.446-1.274.098-2.656 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 7.844c.85.004 1.708.115 2.509.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.382.204 2.402.1 2.656.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.688-4.566 4.936.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .268.18.577.688.48C19.137 20.183 22 16.433 22 12.008 22 6.484 17.523 2 12 2Z" stroke="currentColor" stroke-width="2"/></svg>
-          GitHub
-        </a>
-      </div>
-    </section>
+  <h1 class="hero-name">
+    Dominique<br>
+    <span class="line2">Gondelbert</span>
+  </h1>
 
-    <footer>
-      <small>© <span id="y"></span> Dominique Gondelbert · Portafolio</small>
-    </footer>
+  <p class="hero-tagline">
+    Desarrollador de <strong>IA & Automatización</strong> — construyendo sistemas inteligentes que optimizan procesos y crean valor real a través del software y la inteligencia artificial.
+  </p>
+
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://gondelbert.github.io/portafolio/" target="_blank">Ver Portafolio →</a>
+    <a class="btn-secondary" href="#projects">Explorar proyectos</a>
   </div>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">5+</span>
+      <span class="stat-label">Proyectos de IA</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Países · Ponente</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Idiomas</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">∞</span>
+      <span class="stat-label">Curiosidad</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Stack técnico</div>
+  <h2 class="section-title">Habilidades &amp; Tecnologías</h2>
+  <p class="section-sub">Especializado en construir sistemas de IA de punta a punta, desde el dato hasta el despliegue.</p>
+
+  <div class="skills-layout fade-in">
+
+    <div class="skill-block">
+      <div class="skill-icon icon-purple">🤖</div>
+      <h3>IA &amp; Machine Learning</h3>
+      <p>Modelos de lenguaje, clasificación, predicción clínica y arquitecturas generativas aplicadas a problemas reales.</p>
+      <div class="tag-list">
+        <span class="tag accent">PyTorch</span>
+        <span class="tag accent">TensorFlow</span>
+        <span class="tag accent">Transformers</span>
+        <span class="tag accent">GPT-based</span>
+        <span class="tag accent">NLP</span>
+        <span class="tag accent">Generative AI</span>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-icon icon-teal">💬</div>
+      <h3>Chatbots &amp; NLP Conversacional</h3>
+      <p>Diseño de agentes conversacionales con gestión de diálogo, clasificación de intenciones y flujos complejos.</p>
+      <div class="tag-list">
+        <span class="tag teal">Rasa Framework</span>
+        <span class="tag teal">Intent Classification</span>
+        <span class="tag teal">Dialogue Management</span>
+        <span class="tag teal">Conversational AI</span>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-icon icon-amber">⚙️</div>
+      <h3>Desarrollo &amp; Herramientas</h3>
+      <p>Python como lenguaje principal; flujo moderno de versionado, experimentación en la nube y despliegue.</p>
+      <div class="tag-list">
+        <span class="tag">Python</span>
+        <span class="tag">Git / GitHub</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">Google Colab</span>
+        <span class="tag">Google Cloud Platform</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-icon icon-pink">🌐</div>
+      <h3>Web &amp; Soporte TI</h3>
+      <p>Interfaces web complementarias a proyectos de IA, más soporte técnico corporativo integral.</p>
+      <div class="tag-list">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">IT Support</span>
+        <span class="tag">Hardware &amp; Software</span>
+        <span class="tag">Mantenimiento</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Trabajo destacado</div>
+  <h2 class="section-title">Proyectos</h2>
+  <p class="section-sub">Sistemas reales construidos para resolver problemas en salud, educación y producción.</p>
+
+  <div class="projects-grid fade-in">
+
+    <!-- OFUS -->
+    <div class="project-card featured">
+      <div>
+        <div class="project-num">001 — Proyecto Principal</div>
+        <h3>OFUS — Arquitectura IA Autónoma</h3>
+        <p>Arquitectura modular de inteligencia artificial diseñada para automatizar y gestionar procesos en entornos de alta demanda. Incluye pipelines de datasets, flujos de entrenamiento y capacidades NLP avanzadas.</p>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">PyTorch</span>
+          <span class="tech-pill">Transformers</span>
+          <span class="tech-pill">GPT-based</span>
+          <span class="tech-pill">NLP</span>
+        </div>
+      </div>
+      <div class="project-visual pv-ofus">
+        <svg width="160" height="160" viewBox="0 0 160 160">
+          <defs>
+            <pattern id="dots" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="rgba(124,111,239,0.6)"/>
+            </pattern>
+          </defs>
+          <rect width="160" height="160" fill="url(#dots)"/>
+        </svg>
+        <div class="pv-brain">
+          <div class="pv-core"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- R_OFUS -->
+    <div class="project-card">
+      <div class="project-num">002</div>
+      <h3>R_OFUS — Asistente Educativo</h3>
+      <p>Versión compacta de OFUS sobre Rasa, orientada a automatizar procesos académicos y administrativos en instituciones de educación superior.</p>
+      <div class="project-tech">
+        <span class="tech-pill">Rasa</span>
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">NLP</span>
+      </div>
+    </div>
+
+    <!-- IUB-BOT -->
+    <div class="project-card">
+      <div class="project-num">003</div>
+      <h3>IUB-BOT — Asistente Universitario</h3>
+      <p>IA conversacional para orientación estudiantil, recuperación de información académica y soporte en trámites administrativos universitarios.</p>
+      <div class="project-tech">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Rasa</span>
+        <span class="tech-pill">AI Integration</span>
+      </div>
+    </div>
+
+    <!-- Diabetes -->
+    <div class="project-card">
+      <div class="project-num">004</div>
+      <h3>Predicción de Riesgo de Diabetes</h3>
+      <p>Solución web que combina modelos predictivos (Árboles de Decisión) con un asistente generativo para orientación clínica y análisis de datos de pacientes.</p>
+      <div class="project-tech">
+        <span class="tech-pill">Decision Trees</span>
+        <span class="tech-pill">Generative AI</span>
+        <span class="tech-pill">Machine Learning</span>
+      </div>
+    </div>
+
+    <!-- IoT -->
+    <div class="project-card">
+      <div class="project-num">005</div>
+      <h3>IoT Monitor para Piscicultura</h3>
+      <p>Plataforma IoT en tiempo real para medir variables de calidad del agua, optimizando operaciones de cultivo de peces mediante sensores y procesamiento de datos.</p>
+      <div class="project-tech">
+        <span class="tech-pill">IoT</span>
+        <span class="tech-pill">Sensores</span>
+        <span class="tech-pill">Real-Time Data</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Trayectoria</div>
+  <h2 class="section-title">Experiencia &amp; Logros</h2>
+  <p class="section-sub">Combinando práctica profesional con presencia académica internacional.</p>
+
+  <div class="exp-layout fade-in">
+    <div class="exp-nav">
+      <div class="exp-nav-item active" onclick="showExp('itsupport', this)">
+        <h4>IT Support</h4>
+        <span>Soporte Técnico</span>
+      </div>
+      <div class="exp-nav-item" onclick="showExp('speaker_co', this)">
+        <h4>Ponente — Colombia</h4>
+        <span>Medellín · 2024</span>
+      </div>
+      <div class="exp-nav-item" onclick="showExp('speaker_mx', this)">
+        <h4>Ponente — México</h4>
+        <span>Internacional · 2025</span>
+      </div>
+      <div class="exp-nav-item" onclick="showExp('education', this)">
+        <h4>Formación</h4>
+        <span>Universidad de Barranquilla</span>
+      </div>
+    </div>
+
+    <div class="exp-content">
+      <div class="exp-entry visible" id="exp-itsupport">
+        <div class="exp-role">Técnico de Soporte TI</div>
+        <div class="exp-company">Entorno Corporativo</div>
+        <div class="exp-date">6 MESES · EXPERIENCIA PROFESIONAL</div>
+        <ul class="exp-bullets">
+          <li>Diagnóstico y resolución de fallas de hardware y software en entorno corporativo.</li>
+          <li>Instalación y configuración de sistemas operativos y aplicaciones empresariales.</li>
+          <li>Mantenimiento preventivo y correctivo de equipos de cómputo.</li>
+          <li>Gestión de inventario y soporte en administración de activos tecnológicos.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry" id="exp-speaker_co">
+        <div class="exp-role">Ponente Internacional</div>
+        <div class="exp-company">Eventos de Tecnología e Innovación · Medellín</div>
+        <div class="exp-date">2024 · COLOMBIA</div>
+        <ul class="exp-bullets">
+          <li>Presentación de proyectos de Inteligencia Artificial aplicada a procesos educativos.</li>
+          <li>Participación en eventos de innovación tecnológica ante audiencias especializadas.</li>
+          <li>Reconocimiento por investigación y desarrollo en IA educativa.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry" id="exp-speaker_mx">
+        <div class="exp-role">Ponente Internacional</div>
+        <div class="exp-company">Eventos Académicos Internacionales · México</div>
+        <div class="exp-date">2025 · MÉXICO</div>
+        <ul class="exp-bullets">
+          <li>Exposición de proyectos de IA ante comunidad académica internacional.</li>
+          <li>Difusión de investigaciones en automatización educativa y sistemas inteligentes.</li>
+          <li>Networking con investigadores y desarrolladores de América Latina.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry" id="exp-education">
+        <div class="exp-role">Formación Académica</div>
+        <div class="exp-company">Universidad de Barranquilla</div>
+        <div class="exp-date">EN CURSO</div>
+        <ul class="exp-bullets">
+          <li>Tecnólogo en Gestión de Sistemas de Información — <em>en progreso</em>.</li>
+          <li>Técnico Profesional en Mantenimiento de Sistemas de Información — <em>completado</em>.</li>
+          <li>Participación activa en grupos de investigación e innovación tecnológica.</li>
+          <li>Desarrollo de soluciones de IA aplicadas al contexto educativo colombiano.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="about" style="padding: 5rem 4rem 3rem; background: var(--bg2);">
+  <div class="section-label">Comunicación</div>
+  <h2 class="section-title">Idiomas</h2>
+  <div class="lang-grid fade-in">
+    <div class="lang-card">
+      <span class="lang-flag">🇫🇷</span>
+      <div class="lang-info">
+        <h4>Français</h4>
+        <span>Nativo</span>
+      </div>
+    </div>
+    <div class="lang-card">
+      <span class="lang-flag">🇨🇴</span>
+      <div class="lang-info">
+        <h4>Español</h4>
+        <span>Nativo</span>
+      </div>
+    </div>
+    <div class="lang-card">
+      <span class="lang-flag">🇺🇸</span>
+      <div class="lang-info">
+        <h4>English</h4>
+        <span>Intermedio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE / ABOUT -->
+<section id="about" style="background: var(--bg); text-align: center; padding: 6rem 4rem;">
+  <span class="quote-mark">"</span>
+  <blockquote>
+    La tecnología no es solo resolver problemas;<br>es <em>crear oportunidades</em> para el futuro.
+  </blockquote>
+  <p class="quote-author">— Dominique Gondelbert</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label" style="justify-content: center;">¿Tienes un proyecto?</p>
+  <h2 class="contact-super">Trabajemos<br><span>juntos</span></h2>
+  <p class="contact-sub">Abierto a colaboraciones en IA, automatización y proyectos de innovación tecnológica.</p>
+  <a class="btn-primary" href="https://gondelbert.github.io/portafolio/" target="_blank" style="display: inline-flex; margin: 0 auto;">
+    Visitar portafolio completo →
+  </a>
+</section>
+
+<footer>
+  <p>© 2025 · Dominique Gondelbert</p>
+  <p>AI & Automation Developer · Barranquilla, Colombia</p>
+  <p>Built with precision &amp; intention</p>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Exp tabs
+  function showExp(id, el) {
+    document.querySelectorAll('.exp-entry').forEach(e => e.classList.remove('visible'));
+    document.querySelectorAll('.exp-nav-item').forEach(e => e.classList.remove('active'));
+    document.getElementById('exp-' + id).classList.add('visible');
+    el.classList.add('active');
+  }
+</script>
+
 </body>
 </html>
